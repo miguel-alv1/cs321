@@ -1,0 +1,49 @@
+1.
+In this particular scenario, player 1 won 21/25 games and tied 0. The MCTS player is winning most of the games.
+
+2. 
+In this particular scenario, player 1 won 5/25 games and tied 0. The MCST player is winning the majority of the games.
+
+3.
+UCB_CONST = 0.1 ---> Player 1 won 19/25 games.
+
+UCB_CONST = 0.25 ---> Player 1 won 20/25 games.
+
+UCB_CONST = 0.4 ---> Player 1 won 21/25 games.
+
+UCB_CONST = 0.6 ---> Player 1 won 19/25 games.
+
+UCB_CONST = 0.8 ---> Player 1 won 20/25 games.
+
+UCB_CONST = 1 ---> Player 1 won 20/25 games.
+
+I think that a number closer to the middle of 0 and 1 is probably the best since it's a a good balance between maximizing and minimizing
+the UCB value when we can't really quantify what's necessarily 'good' for player 1 and player 2? Not totally sure as to how this UCB value
+is effective when just running player 1.
+
+4.
+Player 1 (rollouts 10), Player 2 (rollouts 35) ---> Player 1 won 18/25 games. 0 draws.
+
+Player 1 (rollouts 360), Player 2 (rollouts 35) ---> Player 1 won 4/25 games. 0 draws.
+
+Player 1 (rollouts 5), Player 2 (rollouts 35) ---> Player 1 won 16/25 games. 0 draws.
+
+Player 1 (rollouts 360), Player 2 (rollouts 64) ---> Player 1 won 14/25 games. 0 draws.
+
+Player 1 (rollouts 100), Player 2 (rollouts 64) ---> Player 1 won 20/25 games. 0 draws.
+
+Player 1 (rollouts 32), Player 2 (rollouts 64) ---> Player 1 won 19/25 games. 0 draws.
+
+Player 1 (rollouts 64), Player 2 (rollouts 32) ---> Player 1 won 7/25 games. 0 draws.
+
+Player 1 (rollouts 5), Player 2 (rollouts 32) ---> Player 1 won 11/25 games. 0 draws.
+
+Player 1 (rollouts 32), Player 2 (rollouts 5) ---> Player 1 won 16/25 games. 0 draws.
+
+Player 1 (rollouts 32), Player 2 (rollouts 100) ---> Player 1 won 17/25 games. 0 draws.
+
+Player 1 (rollouts 32), Player 2 (rollouts 32) ---> Player 1 won 17/25 games. 0 draws.
+
+I would expect that as more rollouts should increase the win percentage of a particular MCST player but sometimes this was not the case which
+might go back to some sort of weird case in my code. In particular, the lack of draws is a bit worrying. I suspect that there is some sort of 
+issue with simulating.
